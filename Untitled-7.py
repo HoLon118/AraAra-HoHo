@@ -9,6 +9,7 @@ class Load():
     def __init__(self, goods, max_load):
         self.goods = goods
         self.max_load = max_load
+        self.max_flag = 0
             
     def estimate_profit(self):
         load = 0
@@ -17,7 +18,7 @@ class Load():
             load += good.weight
             if (load > self.max_load):
                 print("it is over load.")
-                return
+                return 0
             p += good.profit
         return p
         
@@ -31,6 +32,7 @@ class Load():
                 else:
                     good.load = good.max_num
                     print("All goods are achieved max num")
+                    self.max_flag = 1
 
 apples = Vegetable(4, 11, 6)
 bananas = Vegetable(5, 30, 10)
